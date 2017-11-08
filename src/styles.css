@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.dst-inline {
+  min-height: 1.5em;
+  min-width: 5em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.dst-block {
+  min-height: 1.5em;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  /*margin-left: 1em;*/
+  margin-top: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.value {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin: 1px;
+}
+
+.predicat {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin: 1px;
+}
