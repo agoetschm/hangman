@@ -6,6 +6,10 @@ html, body {
   height: 100%;
 }
 
+.scrollable {
+  overflow: auto;
+}
+
 .no-padding {
   padding: 0;
 }
@@ -38,8 +42,12 @@ html, body {
   margin: 1px;
 }
 
-.predicat {
+.predicate {
   padding-left: 0.5em;
   padding-right: 0.5em;
   margin: 1px;
+}
+.and {
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
 }
