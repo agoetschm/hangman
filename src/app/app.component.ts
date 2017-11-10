@@ -142,27 +142,7 @@ export class AppComponent {
       }
       //this.instrs.forEach((v, k) => console.log(k + " -> " + v.map(i => i.name).join()))
     });
-
-    // TODO https://github.com/valor-software/ng2-dragula/issues/309
-    // dragulaService.setOptions('instr', {
-    //         removeOnSpill: false,
-    //         moves: function (el, container, target) {
-    //             if (target.classList) {
-    //                 return target.classList.contains('parentDraggable');
-    //             }
-    //             return false;
-    //         }
-    //     });
-    // dragulaService.setOptions('child-bag', {
-    //     removeOnSpill: false,
-    //     moves: function (el, container, target) {
-    //         if (target.classList) {
-    //             return target.classList.contains('childDraggable');
-    //         }
-    //         return false;
-    //     }
-    // });
-
+    
     dragulaService.setOptions('instr', {
       removeOnSpill: false,
       accepts: function(el, target, source, sibling) {
@@ -174,6 +154,12 @@ export class AppComponent {
           return target.id !== "if2Block" && target.id !== "else2Block";
         }
         return true;
+      },
+      moves: function (el, container, target) {
+          if (target.classList) {
+              return !target.classList.contains('predicate') && !target.classList.contains('value');
+          }
+          return false;
       }
     });
     dragulaService.setOptions('predicate', {
