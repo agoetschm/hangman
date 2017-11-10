@@ -6,8 +6,19 @@ html, body {
   height: 100%;
 }
 
+.monospace {
+  font-family: monospace;
+}
+
 .scrollable {
   overflow: auto;
+}
+
+.src-container {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 0.3em;
+  min-height: 1em;
 }
 
 .no-padding {

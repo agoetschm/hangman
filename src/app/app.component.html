@@ -1,98 +1,116 @@
 
+<div class="fixed-action-btn click-to-toggle">
+  <a class="btn-floating btn-large waves-effect waves-light red">
+    <i class="large material-icons">menu</i>
+  </a>
+  <ul>
+    <li><a class="btn-floating blue waves-effect waves-light" (click)="compileAndRun()"><i class="material-icons">playlist_play</i></a></li>
+      <li><a class="btn-floating orange waves-effect waves-light" (click)="clear()"><i class="material-icons">cancel</i></a></li>
+    <li><a class="btn-floating green waves-effect waves-light" (click)="runSolution()"><i class="material-icons">play_circle_filled</i></a></li>
+  </ul>
+</div>
+
 <div class="row full-height no-margin">
   <div class="col s12 m7 full-height no-padding">
     <div class="row full-height  no-margin">
       <div id="dst" class="col s8 full-height scrollable" [dragula]='"instr"'>
       </div>
 
-      <div id="src" class="col s4 full-height grey lighten-2 scrollable" [dragula]='"instr"'>
-        <div id="mystery" class="card-panel red lighten-2">
-          mystery word = <div id="mysteryValue" class="dst-inline blue lighten-4" [dragula]='"instr"'></div>
-        </div>
-        <div id="guess1" class="card-panel red lighten-2">
-          guess = <div id="guess1Value" class="dst-inline blue lighten-4" [dragula]='"instr"'></div>
-        </div>
-        <div id="guess2" class="card-panel red lighten-2">
-          guess = <div id="guess2Value" class="dst-inline blue lighten-4" [dragula]='"instr"'></div>
-        </div>
-        <div id="letter" class="card-panel red lighten-2">
-          new letter = <div id="letterValue" class="dst-inline blue lighten-4" [dragula]='"instr"'></div>
-        </div>
+      <div class="col s4 full-height grey lighten-3 scrollable">
+        <div id="src-instr" class="grey lighten-2 src-container" [dragula]='"instr"'>
+          <div id="mystery" class="card-panel red lighten-2">
+            mystery word = <div id="mysteryValue" class="dst-inline blue lighten-4" [dragula]='"value"'></div>
+          </div>
+          <div id="guess1" class="card-panel red lighten-2">
+            guess = <div id="guess1Value" class="dst-inline blue lighten-4" [dragula]='"value"'></div>
+          </div>
+          <div id="guess2" class="card-panel red lighten-2">
+            guess = <div id="guess2Value" class="dst-inline blue lighten-4" [dragula]='"value"'></div>
+          </div>
+          <div id="letter" class="card-panel red lighten-2">
+            new letter = <div id="letterValue" class="dst-inline blue lighten-4" [dragula]='"value"'></div>
+          </div>
 
-        <div id="while" class="card-panel orange lighten-2">
-          while ( <div id="whilePredicate" class="dst-inline green lighten-4" [dragula]='"instr"'></div> )
-          <br/>
-          <div id="whileBlock" class="dst-block white" [dragula]='"instr"'>
+          <div id="while" class="card-panel orange lighten-2">
+            loop while ( <div id="whilePredicate" class="dst-inline green lighten-4" [dragula]='"predicate"'></div> )
+            <br/>
+            <div id="whileBlock" class="dst-block white" [dragula]='"instr"'>
+            </div>
+          </div>
+          <div id="if1" class="card-panel orange lighten-2">
+            if ( <div id="if1Predicate" class="dst-inline green lighten-4" [dragula]='"predicate"'></div> )<br/>
+            <div id="if1Block" class="dst-block white" [dragula]='"instr"'>
+            </div> <br/>
+            else
+            <div id="else1Block" class="dst-block white" [dragula]='"instr"'></div>
+          </div>
+          <div id="if2" class="card-panel orange lighten-2">
+            if ( <div id="if2Predicate" class="dst-inline green lighten-4" [dragula]='"predicate"'></div> )<br/>
+            <div id="if2Block" class="dst-block white" [dragula]='"instr"'>
+            </div> <br/>
+            else
+            <div id="else2Block" class="dst-block white" [dragula]='"instr"'></div>
+          </div>
+
+          <div id="addStep" class="card-panel purple lighten-3">
+            add a step to the hangman
+          </div>
+          <div id="displayGuess1" class="card-panel purple lighten-3">
+            display guess
+          </div>
+          <div id="displayGuess2" class="card-panel purple lighten-3">
+            display guess
+          </div>
+          <div id="displayWon" class="card-panel purple lighten-3">
+            display a victory message
+          </div>
+          <div id="displayLost" class="card-panel purple lighten-3">
+            display a loss message
           </div>
         </div>
-        <div id="if1" class="card-panel orange lighten-2">
-          if ( <div id="if1Predicate" class="dst-inline green lighten-4" [dragula]='"instr"'></div> )<br/>
-          <div id="if1Block" class="dst-block white" [dragula]='"instr"'>
-          </div> <br/>
-          else
-          <div id="else1Block" class="dst-block white" [dragula]='"instr"'></div>
-        </div>
-        <div id="if2" class="card-panel orange lighten-2">
-          if ( <div id="if2Predicate" class="dst-inline green lighten-4" [dragula]='"instr"'></div> )<br/>
-          <div id="if2Block" class="dst-block white" [dragula]='"instr"'>
-          </div> <br/>
-          else
-          <div id="else2Block" class="dst-block white" [dragula]='"instr"'></div>
-        </div>
 
-        <div id="addStep" class="card-panel purple lighten-3">
-          add a step to the hangman
-        </div>
-        <div id="displayGuess1" class="card-panel purple lighten-3">
-          display guess
-        </div>
-        <div id="displayGuess2" class="card-panel purple lighten-3">
-          display guess
-        </div>
-        <div id="displayWon" class="card-panel purple lighten-3">
-          display a victory message
-        </div>
-        <div id="displayLost" class="card-panel purple lighten-3">
-          display a loss message
-        </div>
+        <div id="src-predicate" class="src-container green lighten-4" [dragula]='"predicate"'>
+          <div id="alive1" class="predicate green lighten-2">
+            hangman is not done
+          </div>
+          <div id="alive2" class="predicate green lighten-2">
+            hangman is not done
+          </div>
+          <div id="guessNeMystery" class="predicate green lighten-2">
+            guess &ne; mystery word
+          </div>
+          <div id="letterGoodGuess" class="predicate green lighten-2">
+            new letter is a good guess
+          </div>
 
-        <div id="random" class="value blue lighten-2">
-          random word
+          <div id="and" class="predicate and green lighten-2">
+            <div id="leftAnd" class="dst-inline green lighten-4" [dragula]='"predicate"'></div>
+            and
+            <div id="rightAnd" class="dst-inline green lighten-4" [dragula]='"predicate"'></div>
+          </div>
         </div>
-        <div id="initMystery" class="value blue lighten-2">
-          "*" x length of the mystery word
+        <div id="src-value" class="src-container blue lighten-4" [dragula]='"value"'>
+          <div id="initMystery" class="value blue lighten-2">
+            "*" x length of the mystery word
+          </div>
+          <div id="random" class="value blue lighten-2">
+            random word
+          </div>
+          <div id="input" class="value blue lighten-2">
+            input from user
+          </div>
+          <div id="guessRevealed" class="value blue lighten-2">
+            guess with new letter revealed
+          </div>
         </div>
-        <div id="input" class="value blue lighten-2">
-          input from user
-        </div>
-        <div id="guessRevealed" class="value blue lighten-2">
-          guess with new letter revealed
-        </div>
-
-        <div id="alive1" class="predicate green lighten-2">
-          hangman is not done
-        </div>
-        <div id="alive2" class="predicate green lighten-2">
-          hangman is not done
-        </div>
-        <div id="guessNeMystery" class="predicate green lighten-2">
-          guess &ne; mystery
-        </div>
-        <div id="letterGoodGuess" class="predicate green lighten-2">
-          new letter is a good guess
-        </div>
-
-        <div id="and" class="predicate and green lighten-2">
-          <div id="leftAnd" class="dst-inline green lighten-4" [dragula]='"instr"'></div>
-          and
-          <div id="rightAnd" class="dst-inline green lighten-4" [dragula]='"instr"'></div>
-        </div>
-
-
       </div>
     </div>
   </div>
 
-  <div class="col s12 m5 black full-height">
+  <div #outputContainer [scrollTop]="outputContainer.scrollHeight" class="col s12 m5 black full-height scrollable monospace">
+    <div *ngFor="let line of output">
+      <div class="white-text">{{ line }}</div>
+    </div>
+    <input [(ngModel)]="input" (keyup)="onKey($event)" *ngIf="gettingInput" class="white-text"/>
   </div>
 </div>
