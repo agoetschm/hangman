@@ -350,7 +350,7 @@ export class AppComponent {
     this.varGuess = ""
     this.varMystery = ""
     this.varLetter = ""
-    this.varLives = 10
+    this.varLives = 7
     this.stateOfExec = []
     this.varAlreadyTried = []
   }
@@ -498,7 +498,8 @@ export class AppComponent {
     if (!this.gettingInput) {
       this.running = true
       this.println("Running...")
-      this.println("----------------------------------")
+      this.println("##### Hangman #####")
+      //this.println("----------------------------------")
       this.initVars()
     }
     try {
@@ -511,7 +512,7 @@ export class AppComponent {
       }
     }
     if (!this.gettingInput) {
-      this.println("----------------------------------")
+      //this.println("----------------------------------")
       this.println("Run done.")
       this.running = false
     }
@@ -551,6 +552,7 @@ export class AppComponent {
   }
 
   compileAndRun() {
+    this.clear()
     this.clear()
     this.compile()
     if (this.compiled) {
